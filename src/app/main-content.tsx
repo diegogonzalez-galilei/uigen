@@ -59,7 +59,9 @@ export function MainContent({ user, project }: MainContentProps) {
             <ResizablePanel defaultSize={65}>
               <div className="h-full flex flex-col bg-white">
                 {/* Top Bar */}
-                <div className="h-14 border-b border-neutral-200/60 px-6 flex items-center justify-between bg-neutral-50/50">
+                {/* pointer-events-auto ensures tabs remain clickable even when react-resizable-panels
+                    sets pointer-events:none on the panel during (or after a stuck) resize drag */}
+                <div className="h-14 border-b border-neutral-200/60 px-6 flex items-center justify-between bg-neutral-50/50 pointer-events-auto">
                   <Tabs
                     value={activeView}
                     onValueChange={(v) =>
